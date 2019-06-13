@@ -9,8 +9,8 @@ Updating:  UPDATE  name of table  SET ( what value will be updated and to what c
 Deleting: DELETE FROM name of table WHERE ( from where, chooses the identifying place)
 
 3. What are some of the data types that can be used in tables? Give a real-world example of each type.
-Available Balance in banks: similar databases could be created to update the balance that a certain person has in their bank account.
-Rosters for baseball players: the tables could be created to show the individual stats of each player and could be updated regularly.
+money, can be tracked to show contributions in a company
+text, can be used to describe a certain item or element tha tis in the database
 
 4. Decide how to create a new table to hold a list of people invited to a wedding dinner. The table needs to have first and last names, whether they sent in their RSVP, the number of guests they are bringing, and the number of meals (1 for adults and 1/2 for children).
 
@@ -39,7 +39,7 @@ The guests will need a place to sit at the reception, so write a command that ad
 ALTER TABLE wedding_guests ADD COLUMN table_number interger;
 
 The wedding is over and we do not need to keep this information, so write a command that deletes the table numbers from the database.
-ALTER TABLE wedding_guests DROP COLUMN table_num;
+ALTER TABLE wedding_guests DROP COLUMN table_number;
 
 5. Write a command to create a new table to hold the books in a library with the columns ISBN, title, author, genre, publishing date, number of copies, and available copies.
 CREATE TABLE  library_books(
@@ -103,7 +103,7 @@ CREATE TABLE emails(
     body text,
     timestamp timestamp,
     is_read text,
-    email_chain_id
+    email_chain_id Boolean
 );
 
 INSERT INTO inbox 
