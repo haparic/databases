@@ -1,0 +1,108 @@
+Answer the following questions and submit the responses.
+
+1. Write out a generic SELECT statement.
+SELECT row1 FROM table
+
+2. Create a fun way to remember the order of operations in a SELECT statement, such as a mnemonic.
+SELECT- SOME
+FROM- FOLKS
+WHERE- WANT
+GROUP BY- GREENS
+HAVING- HAM &
+ORDER BY- OATMEAL
+
+3. Given this dogs table, write queries to select the following pieces of data:
+
+Intake teams typically guess the breed of shelter dogs, so the breed column may have multiple words (for example, "Labrador Collie mix").
+
+A. Display the name, gender, and age of all dogs that are part Labrador.
+
+SELECT name,gender,age
+FROM dogs
+WHERE breed LIKE '%Labrador%';
+
+B. Display the ids of all dogs that are under 1 year old.
+SELECT ids
+FROM dogs
+WHERE age < 1
+
+C. Display the name and age of all dogs that are female and over 35lbs.
+SELECT name, age
+FROM dogs
+WHERE gender='F' AND weight > 35
+
+D. Display all of the information about all dogs that are not Shepherd mixes
+SELECT *
+FROM dogs
+WHERE breed NOT LIKE '%Shepherd%'
+
+E. Display the id, age, weight, and breed of all dogs that are either over 60lbs or Great Danes.
+SELECT id, age, weight, breed
+FROM dogs
+WHERE weight>60 OR breed='Great Danes'
+
+4. Given this cats table, what records are returned from these queries?
+
+A. SELECT name, adoption_date FROM cats;
+
+name	adoption_date
+Mushi	2016-03-22T00:00:00.000Z
+Seashell	null
+Azul	2016-04-17T00:00:00.000Z
+Victoire	2016-09-01T00:00:00.000Z
+Nala	null
+
+B. SELECT name, age FROM cats;
+name	age
+Mushi	    1
+Seashell	7
+Azul	    3
+Victoire	7
+Nala	    1
+
+5. From the cats table, write queries to select the following pieces of data.
+A. Display all the information about all of the available cats.
+SELECT *
+FROM cats;
+
+B. Display the name and sex of all cats who are 7 years old.
+SELECT name, gender
+FROM cats WHERE age=7;
+
+C. Find all of the names of the cats, so you don’t choose duplicate names for new cats.
+SELECT DISTINCT name
+FROM cats;
+
+6. List each comparison operator and explain when you would use it. Include a real world example for each.
+If you can’t list these from memory, do these flashcards until you can!
+= equal, WHERE age=20, can be used to search for things
+!= not equal, WHERE repaired != no; used to exclude things
+>= greater than or equal to, WHERE age >=21
+<= less than or equal to, WHERE height <=5'4"
+> greater than, WHERE real_numbers > 0
+< less than, WHERE price < 50
+<> greater than or less than, WHERE ph_level <10 OR >3
+BETWEEN returns true if statement is in the range made WHERE price BETWEEN 20 AND 50
+NOT returns row where the expression is false WHERE NOT number <30
+OR looks for one of the expressions to be true WHERE weather ='Sunny' OR weather='Cloudy'
+IS NULL checks to see if the cell is null or not WHERE column_2 is null
+AND is used only when all expressions are correct WHERE age=20 and job='student'
+ALL returns true for any value meets the conditions= WHERE age= ALL
+EXISTS searches for one or more records in subquery WHERE EXISTS(SELECT age FROM people WHERE age>30)
+LIKE searches fro a certain pattern WHERE sport LIKE 'fun%'
+IS DISTINCT FROM  returns values with no duplicates SELECT DISTINCT color FROM cars
+
+7. From the cats table, what data is returned from these queries?
+SELECT name FROM cats WHERE gender = ‘F’;
+name
+Seashell
+Nala
+SELECT name FROM cats WHERE age <> 3;
+name
+Mushi
+Seashell
+Victoire
+Nala
+SELECT ID FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
+3
+4
